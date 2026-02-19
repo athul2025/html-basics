@@ -1,16 +1,26 @@
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(50),
+    phone_number VARCHAR(20),
+    hire_date DATE,
+    job_id INT,
+    salary INT,
+    manager_id INT,
+    department_id INT,
+    FOREIGN KEY (job_id) REFERENCES jobs(job_id),
+    FOREIGN KEY (department_id) REFERENCES departments(department_id)
+);
 
-<html>
-<head>
-    <title>Details</title>
-</head>
-<body>
-    <h3>Details of Student</h3>
-    <h5>Name: ABCD</h5>
-    <h5>Age: 20</h5>
-    <h5>Address: BCDE HOUSE, GHFG (PO), Malappuram</h5>
-    <h5>Phone No: +54654165431654</h5>
-    <h5>Reg No: 9341836</h5>
-    <h5>Class: 12</h5>
-</body>
-</html>
 
+
+
+CREATE TABLE dependents (
+    dependent_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    relationship VARCHAR(60),
+    employee_id INT,
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+);
